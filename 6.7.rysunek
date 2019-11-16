@@ -1,0 +1,74 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _7.rys
+{
+    class Program
+    {
+        static void r_1(string[,] tab)
+        {
+            for (int i = 0; i < 5; i++)
+                for (int j = 0; j < 5; j++)
+                {
+                    tab[i, j] = " X ";
+                }
+        }        
+        static void r_2(string[,] tab)
+        {
+            for (int i = 0; i < 5; i++)
+                for (int j = 0; j < 5; j++)
+                {
+                    if (i >= j) tab[i, j] = " X ";
+                    else tab[i, j] = "   ";
+                }
+        }        
+        static void r_3(string[,] tab)
+        {
+            for (int i = 0; i < 5; i++)
+                for (int j = 0; j <5; j++)
+                {
+                    if (j>=4-i) tab[i, j] = " X ";
+                    else tab[i, j] = "   ";
+                }
+        }        
+        static void r_4(string[,] tab)
+        {
+            for (int i = 0; i < 5; i++)
+                for (int j = 0; j <5; j++)
+                {
+                    if (j==i || j==0 || j==4 || i==0 || i==4 ) tab[i, j] = " X ";
+                    else tab[i, j] = "   ";
+                }
+        }        
+        static void r_5(string[,] tab)
+        {
+            for (int i = 0; i < 5; i++)
+                for (int j = 0; j <5; j++)
+                {
+                    if (j==i || j==0 || j==4 || i==0 || i==4 ) tab[i, j] = " X ";
+                    else tab[i, j] = "   ";
+                }
+        }
+        static void Main(string[] args)
+        {
+            string[,] tab = new string[5,5];
+
+            r_4(tab); // zmień ułożenie!
+
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    Console.Write(tab[i, j]);
+                }
+                Console.WriteLine();
+            }
+            Console.ReadKey();
+        }
+        
+    }
+}
+
