@@ -1,0 +1,47 @@
+        static bool czySamo(char slowo)
+        {
+            if (slowo == 'a' || slowo == 'A' || slowo == 'e' || slowo == 'E' || 
+                slowo == 'i' || slowo == 'I' || slowo == 'o' || slowo == 'O' || 
+                slowo == 'u' || slowo == 'U' || slowo == 'y' || slowo == 'Y')
+                return true;
+            return false;
+        }
+        static string Znajdz(string tekst)
+        {
+            string slowo= "",aktual="";
+            int w=0, s=0;
+            for(int i=0; i<tekst.Length; i++)
+            {
+                if((tekst[i]>=65 && tekst[i]<=90) || (tekst[i]>=97 && tekst[i]<=122))
+                {
+                    slowo += tekst[i];
+                    Console.WriteLine(tekst[i]);
+                }
+                else
+                {
+                    for(int j=0; j<slowo.Length; j++)
+                    {
+                        if (czySamo(slowo[j])) s++;
+                        if (!czySamo(slowo[j])) w++;
+                    }
+                    if(w>s)aktual = slowo;
+                    w = 0;
+                    s = 0;
+                    slowo = "";
+                }
+                if(i==tekst.Length-1 && ((tekst[i] >= 65 && tekst[i] <= 90) || (tekst[i] >= 97 && tekst[i] <= 122)))
+                {
+                    for (int j = 0; j < slowo.Length; j++)
+                    {
+                        if (czySamo(slowo[j])) s++;
+                        if (!czySamo(slowo[j])) w++;
+                    }
+                    if (w > s) aktual = slowo;
+                    w = 0;
+                    s = 0;
+                    slowo = "";
+                }
+            }
+            if(aktual!="")return aktual;
+            return " ";
+        }
