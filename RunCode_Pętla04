@@ -1,0 +1,44 @@
+using System;
+
+namespace RunCode
+{
+    class Program
+    {
+    static int Potega(int n, uint w)
+        {
+            int wynik=1;
+            for(int i=0; i < w; i++)
+            {
+                wynik *= n;
+            }
+            return wynik;
+        }
+    static ulong Silnia(uint n)
+        {
+            ulong wynik=1;
+            for(uint i=1; i<=n; i++)
+            {
+                wynik *= i;
+            }
+            return wynik;
+        }
+    static double Srednia1(int a, int n)
+        {
+            double wynik = 0;
+            int d = 0;
+            for (int i = a+1; i <= a + n; i++)
+            {
+                if (i % 3 != 0 && i % 5 != 0)
+                {
+                    wynik += i;
+                    d++;
+                }
+            }
+            return wynik / d;
+        }
+    static void Main(string[] args)
+        {
+            Console.ReadKey();
+        }
+    }
+}
