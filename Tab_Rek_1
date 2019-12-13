@@ -1,0 +1,6 @@
+    static string ZwrocTablice(int[] tab, int i = 0)
+        {
+            if ((i == tab.Length-1)) return tab[i]+"";
+            i++;
+            return tab[i-1] + "," + ZwrocTablice(tab, i);
+        }
