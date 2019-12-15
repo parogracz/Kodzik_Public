@@ -1,0 +1,50 @@
+        static int PrzesunWPrawoO2()
+        {
+            int i = 8;
+            i = i >>
+                2;
+            return i;
+        }
+        static int PrzesunWLewoO3()
+        {
+            int i = 2;
+            i <<= 3;
+            return i;
+        }
+        static int PrzesunWLewo1(int n)
+        {
+            int i = 1;
+            i <<= n;
+            return i;
+        }
+        static uint PrzesunWLewo2(uint n)
+        {
+            int i = 1;
+            i <<= Convert.ToInt32(n);
+            return Convert.ToUInt32(i);
+        }
+        static uint ZwrocMaske1(uint n)
+        {
+            int i = 0, m = 1;
+            m <<= Convert.ToInt32(n);
+            i |= m;
+            return Convert.ToUInt32(i);
+        }
+        //---------------------------------------------------ZwrocBinarnie1---Start-------------------------------------------
+        static string Odwrot(string tekst, int i)
+        {
+            if (i < tekst.Length) return Odwrot(tekst, i+1) + tekst[i];
+            return "";
+        }
+        static string ZwrocBinarnie1(uint liczba)
+        {
+            string wynik = "";
+            if (liczba == 0) return "0";
+            while(liczba!=0)
+            {
+                wynik += liczba & 1;
+                liczba >>= 1;
+            }
+            return Odwrot(wynik,0);
+        }
+        //---------------------------------------------------ZwrocBinarnie1---Koniec-------------------------------------------
