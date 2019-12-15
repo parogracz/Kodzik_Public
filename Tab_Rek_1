@@ -1,9 +1,0 @@
-    static string ZwrocTablice(int[] tab, int i = 0)
-        {
-            if (tab.Length == 0) return "[]";
-            if (tab.Length == 1) return "["+tab[0]+"]";
-            if (i == 0) return "[" + tab[0] + "," + ZwrocTablice(tab, i + 1);
-            if ((i == tab.Length-1)) return tab[i]+"]";
-            i++;
-            return tab[i-1] + "," + ZwrocTablice(tab, i);
-        }
