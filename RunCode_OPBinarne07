@@ -48,3 +48,58 @@
             return Odwrot(wynik,0);
         }
         //---------------------------------------------------ZwrocBinarnie1---Koniec-------------------------------------------
+        static uint ZwrocMaske2(uint n)
+        {
+            uint maska = 1;
+            maska <<= Convert.ToInt32(n);
+            maska = ~maska;
+            return maska;
+        }
+        static string Na_Tekst(uint maska)
+        {
+            if (maska != 0) return Na_Tekst(maska >> 1) + (maska & 1);
+            return "";
+        }
+        static string ZwrocMaskeJakoTekst1(uint n)
+        {
+            uint m = 1;
+            m <<= Convert.ToInt32(n);
+            return Na_Tekst(m);
+        }
+        //---------------------------------------------------ZwrocMaskeJakoTekst2---Start-------------------------------------------
+        static string Tekstowanie(uint maska)
+        {
+            if (maska != 0) return Tekstowanie(maska>>1) + (maska & 1);
+            return "";
+        }
+        static string ZwrocMaskeJakoTekst2(uint bit)
+        {
+            uint maska = 1;
+            maska <<= Convert.ToInt32(bit);
+            return Tekstowanie(~maska);
+        }
+        //---------------------------------------------------ZwrocMaskeJakoTekst2---Koniec-------------------------------------------
+        static uint JakiBit(uint liczba)
+        {
+            return liczba & 1;
+        }
+        //---------------------------------------------------ZwrocBinarnie2---Start-------------------------------------------
+
+        //---------------------------------------------------ZwrocBinarnie2---Koniec-------------------------------------------
+        static string ZwrocMaskeJakoTekst3(uint n)
+        {
+           uint m = 7;
+            m <<= Convert.ToInt32(n);
+            return Tekstowanie(m);
+        }
+        static string ZwrocMaskeOdwJakoTekst(uint n)
+        {
+            uint m = 3;
+            m = ~m;
+            for (int i = 0; i < n; i++)
+            {
+                m <<= 1;
+                m |= 1;
+            }
+            return ZwrocBinarnie1(m);
+        }
